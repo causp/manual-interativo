@@ -47,9 +47,9 @@
         <!-- Passo 1: Contrato Social -->
         <div class="step active row" id="step1">
             
-            <div class="row">
+            <div class="row my-3">
                 <h2>Passo 1: Contrato Social</h2>
-            </div>
+            </div>          
 
             <div class="row">
                 <p>Verifique se o contrato social contém os seguintes pontos principais:</p>
@@ -61,6 +61,7 @@
                     <li><input type="checkbox" id="ponto5" class="form-check-input"> <label for="ponto5">Quadro de Sócios e Participações</label></li>
                     <li><input type="checkbox" id="ponto6" class="form-check-input"> <label for="ponto6">Administração e Representação Legal</label></li>
                 </ul>
+                
             </div>
 
             <div class="btn-container row my-2">
@@ -75,7 +76,7 @@
         <!-- Passo 2: CNPJ Atualizado -->
         <div class="step row" id="step2">
 
-            <div class="row">
+            <div class="row my-3">
                 <h2>Passo 2: CNPJ Atualizado</h2>
             </div>
 
@@ -102,7 +103,7 @@
         <!-- Passo 3: Registro de Responsabilidade Técnica -->
         <div class="step row" id="step3">
 
-            <div class="row">
+            <div class="row my-3">
                 <h2>Passo 3: Registro de Responsabilidade Técnica</h2>
             </div>
             
@@ -115,6 +116,30 @@
                         <li>Envie a documentação para o conselho de arquitetura, seja online ou presencialmente, conforme as instruções do conselho.</li>
                         <li>Aguarde a análise e aprovação do registro.</li>
                     </ol>
+                </div>
+
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <input class="form-check-input" type="radio" name="opcao" >
+                        <label for="opcao"><h5 class="card-title">Sócio Administrador</h5></label>
+                        <p class="card-text">O responsável técnico é sócio administrador (com poder de gestão).</p>
+                    </div>
+                </div>
+    
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <input class="form-check-input" type="radio" name="opcao" >
+                        <label for="opcao"><h5 class="card-title">Sócio</h5></label>
+                        <p class="card-text">O responsável técnico é sócio  (sem poder de gestão).</p>
+                    </div>
+                </div>
+    
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <input class="form-check-input" type="radio" name="opcao" >
+                        <label for="opcao"><h5 class="card-title">Prestador de Serviços</h5></label>
+                        <p class="card-text">O responsável técnico é prestador de serviços.</p>
+                    </div>
                 </div>
 
             </div>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Registro de Empresa no Conselho de Arquitetura</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS Personalizado -->
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .step.active {
+            display: block; /* Mostra apenas o passo ativo */
+        }
+
+        .step {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: none; /* Oculta todos os passos inicialmente */
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .btn-container {
+            /* display: flex;
+            justify-content: space-between; */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <h1 class="text-center my-4">Manual Interativo de Registro de Empresa</h1>
+
+        <!-- Passo 1: Contrato Social -->
+        <div class="step active row" id="step1">
+            
+            <div class="row">
+                <h2>Passo 1: Contrato Social</h2>
+            </div>
+
+            <div class="row">
+                <p>Verifique se o contrato social contém os seguintes pontos principais:</p>
+                <ul class="list-unstyled">
+                    <li><input type="checkbox" id="ponto1" class="form-check-input"> <label for="ponto1">Razão Social da Empresa</label></li>
+                    <li><input type="checkbox" id="ponto2" class="form-check-input"> <label for="ponto2">Objeto Social (atividades da empresa)</label></li>
+                    <li><input type="checkbox" id="ponto3" class="form-check-input"> <label for="ponto3">Endereço da Sede</label></li>
+                    <li><input type="checkbox" id="ponto4" class="form-check-input"> <label for="ponto4">Capital Social</label></li>
+                    <li><input type="checkbox" id="ponto5" class="form-check-input"> <label for="ponto5">Quadro de Sócios e Participações</label></li>
+                    <li><input type="checkbox" id="ponto6" class="form-check-input"> <label for="ponto6">Administração e Representação Legal</label></li>
+                </ul>
+            </div>
+
+            <div class="btn-container row my-2">
+                <div class="d-flex justify-content-between px-2">
+                    <button class="btn btn-danger" onclick="prevStep()" disabled>Voltar</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Avançar</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Passo 2: CNPJ Atualizado -->
+        <div class="step row" id="step2">
+
+            <div class="row">
+                <h2>Passo 2: CNPJ Atualizado</h2>
+            </div>
+
+            <div class="row">
+                <p>Certifique-se de que o CNPJ da empresa está atualizado e contém as seguintes informações corretas:</p>
+                <ul class="list-unstyled">
+                    <li>Razão Social</li>
+                    <li>Endereço da Sede</li>
+                    <li>Atividade Econômica Principal</li>
+                    <li>Situação Cadastral</li>
+                </ul>
+                <p>Para atualizar o CNPJ, acesse o site da Receita Federal e siga as instruções.</p>
+            </div>
+            
+            <div class="btn-container row my-2">
+                <div class="d-flex justify-content-between px-2">
+                    <button class="btn btn-danger" onclick="prevStep()" disabled>Voltar</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Avançar</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Passo 3: Registro de Responsabilidade Técnica -->
+        <div class="step row" id="step3">
+
+            <div class="row">
+                <h2>Passo 3: Registro de Responsabilidade Técnica</h2>
+            </div>
+            
+            <div class="row">
+                <p>Para realizar o registro de responsabilidade técnica, siga os passos abaixo:</p>
+                <div>
+                    <ol>
+                        <li>Preencha o formulário de registro de responsabilidade técnica disponível no site do conselho de arquitetura.</li>
+                        <li>Reúna os documentos necessários, como o contrato social, CNPJ, e documentos pessoais do responsável técnico.</li>
+                        <li>Envie a documentação para o conselho de arquitetura, seja online ou presencialmente, conforme as instruções do conselho.</li>
+                        <li>Aguarde a análise e aprovação do registro.</li>
+                    </ol>
+                </div>
+
+            </div>
+
+            <div class="btn-container row my-2">
+                <div class="d-flex justify-content-between px-2">
+                    <button class="btn btn-danger" onclick="prevStep()" disabled>Voltar</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Avançar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <!-- Script para navegação entre passos -->
+    
+    <script>
+        let currentStep = 1;
+
+        function showStep(step) {
+            // Oculta todos os passos
+            document.querySelectorAll('.step').forEach(step => {
+                step.classList.remove('active');
+            });
+
+            // Mostra o passo atual
+            document.getElementById(`step${step}`).classList.add('active');
+
+            // Atualiza o estado dos botões
+            updateButtons(step);
+        }
+
+        function nextStep() {
+            if (currentStep < 3) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        function updateButtons(step) {
+            const prevButton = document.querySelector('#step' + step + ' .btn-container button:first-child');
+            const nextButton = document.querySelector('#step' + step + ' .btn-container button:last-child');
+
+            if (step === 1) {
+                prevButton.disabled = true;
+            } else {
+                prevButton.disabled = false;
+            }
+
+            if (step === 3) {
+                nextButton.disabled = true;
+            } else {
+                nextButton.disabled = false;
+            }
+        }
+
+        // Inicializa o primeiro passo
+        showStep(currentStep);
+    </script>
+</body>
+</html>

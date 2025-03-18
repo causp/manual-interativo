@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manual de Registro de Empresa no Conselho de Arquitetura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="piso-profissional.js"></script> <!-- Referência ao arquivo JS externo -->
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- CSS Personalizado -->
@@ -725,42 +729,72 @@
                         <label class="form-check-label" for="opcao_cps_honorario_nao">Não</label>
                     </div>
 
-                    <br>
                     
                 </div>
 
-                <div>
-
+   
+                <div class="container my-4">
                     <div class="border border-2 rounded-2 p-3">
-
-                        <h5>Cálculo do piso profissional:
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2854C5"><path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>                  
-                            </span>
-                        </h5>
-                            
+                        <h5 class="text-center">Cálculo do Piso Profissional</h5>
+                
                         <form>
+                
+                            <div class="mb-3">
+                                <label for="tipo_calculo" class="form-label" id="labelTipoCalculo">Tipo de Cálculo:</label>
+                                <select class="form-select" id="tipo_calculo" onchange="atualizarTipoCalculo()">
+                                    <option value="diario" selected>Carga Horária Diária</option>
+                                    <option value="semanal">Carga Horária Semanal</option>
+                                </select>
+                            </div>
+                
                             <div class="mb-3">
                                 <label for="dataInicio" class="form-label">Data de Início do Contrato:</label>
-                                <input type="date" class="form-control" id="dataInicio" required>
+                                <input type="date" class="form-control" id="dataInicio" required onchange="atualizarSalarioMinimo()">
                             </div>
                 
                             <div class="mb-3">
-                                <label for="cargaHoraria" class="form-label">Carga Horária Exercida:</label>
-                                <input type="number" class="form-control" id="cargaHoraria" placeholder="Horas por semana" required>
+                                <label for="entrada_salario_minimo" class="form-label">Salário Mínimo (base de cálculo), conforme a data informada:</label>
+                                <input type="text" class="form-control" id="entrada_salario_minimo" placeholder="Selecione a data primeiro" readonly>
+                                <small id="avisoSalario" class="text-danger"></small> <!-- Mensagem de aviso -->
                             </div>
                 
                             <div class="mb-3">
-                                <label for="remuneracao" class="form-label">Valor da Remuneração Mensal:</label>
-                                <input type="text" class="form-control" id="remuneracao" placeholder="R$ 0,00" required>
+                                <label for="entrada_carga_horaria" class="form-label" id="labelCargaHoraria">Carga Horária:</label>
+                                <input type="text" class="form-control" id="entrada_carga_horaria" placeholder="hh:mm" required>
+                                <small id="erroCargaHoraria" class="text-danger"></small> <!-- Mensagem de erro -->
                             </div>
                 
-                            <button type="submit" class="btn btn-primary" disabled>Calcular</button>
+                
+                
+                            <button type="button" class="btn btn-primary" onclick="calcularPiso()">Calcular</button>
+                            <button type="button" class="btn btn-secondary" onclick="limparCampos()">Limpar</button>
                         </form>
+                
+                        <div id="resultado" class="mt-3 p-3 border rounded bg-light" style="display: none;"></div>
+                    </div>
+                </div>
     
+
+
+                <div>
+
+                    <h6>O valor dos <strong>honorários mensais</strong> informado no contrato de prestação de serviços atende ao piso profissional?
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2854C5"><path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>                  
+                        </span>
+                    </h6>
+                        
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="opcao_cps_honorario" id="opcao_cps_honorarios_sim">
+                        <label class="form-check-label" for="opcao_cps_honorarios_sim">Sim</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="opcao_cps_honorario" id="opcao_cps_honorarios_nao">
+                        <label class="form-check-label" for="opcao_cps_honorarios_nao">Não</label>
                     </div>
 
-                    <br>                    <br>
+                    <br>
+                    
                 </div>
 
                 <hr>

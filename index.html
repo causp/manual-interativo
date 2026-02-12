@@ -27,7 +27,24 @@
                 
             }
 
-            h1 {
+            label {
+                cursor: pointer;
+            }
+
+            .alerta-pendencia {
+                color: #2e2e2e;
+                font-size: 0.825rem;
+                overflow: hidden; 
+                border-left: 4px solid #ffc107;
+                display: none; /* O jQuery slideUp/Down lidará com isso daqui pra frente */
+            }
+
+
+            .fs-7 {
+                font-size: 0.825rem;
+            }
+
+            .coach-mark {
                 color: #0d2b49;
             }
             
@@ -68,7 +85,7 @@
             /* ccs para transições */
 
             .hidden {
-            display: none; /* esconder todos card */
+            display: block !important;/* esconder todos card */
             }
 
             .info-box {
@@ -291,24 +308,6 @@
                 </div>   
                 
 
-                <!-- Overlay de ajuda -->
-                <div id="overlay-ajuda" class="overlay-ajuda d-none">
-                    <div class="coach-mark">
-                        <p>
-                        Em caso de dúvida, clique no ícone de dúvida 
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2854C5">
-                                    <path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-                                </svg>
-                            </span>
-                        ao lado de cada pergunta.
-                        </p>
-                        <button class="btn btn-primary siccau-cor px-3" id="fechar-ajuda">
-                        Ok
-                        </button>
-                    </div>
-                </div>
-
                 <div class="row">
 
                     <h6>
@@ -319,25 +318,27 @@
                             </svg>
                         </span>
 
-                        <!-- Overlay de ajuda -->
-                        <div id="overlay-ajuda" class="overlay-ajuda d-none">
-                            <div class="coach-mark">
-                                <p>
-                                Em caso de dúvida, clique no ícone de dúvida 
-                                    <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2854C5">
-                                            <path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-                                        </svg>
-                                    </span>
-                                ao lado de cada pergunta.
-                                </p>
-                                <button class="btn btn-primary siccau-cor px-3" id="fechar-ajuda">
-                                Ok
-                                </button>
-                            </div>
-                        </div>
+
 
                     </h6>
+
+                    <!-- Overlay de ajuda -->
+                    <div id="overlay-ajuda" class="overlay-ajuda d-none">
+                        <div class="coach-mark">
+                            <p>
+                            Em caso de dúvida, clique no ícone de dúvida
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2854C5">
+                                        <path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+                                    </svg>
+                                </span>
+                            ao lado de cada pergunta.
+                            </p>
+                            <button class="btn btn-primary siccau-cor px-3" id="fechar-ajuda">
+                            Ok
+                            </button>
+                        </div>
+                    </div>
         
                 </div>
 
@@ -1117,26 +1118,30 @@
                                 <input class="form-check-input" type="radio" name="atualizado" id="atualizado_nao">
                                 <label class="form-check-label" for="atualizado_nao">Não</label>
                             </div>
-        
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_8" style="display:none; color: #2e2e2e;">
-                                <div style="font-size: 0.875rem;">
-                                    ⚠️ <strong>Atenção</strong>: O contrato social deve estar sempre atualizado, de acordo com a última alteração registrada no órgão competente.
-                                    
-                                </div>  
+
+
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_8">
                                 
-                                <div>
-                                    <div class="mt-2 font-size: 1rem" >
-                                        Ao clicar em <i>“Avançar”</i>, você será lembrado de revisar este item ao final do guia.
-                                    </div>
-                                    <div class="mt-2 font-size: 0.5rem">
-                                        Se preferir, regularize a pendência agora e selecione outro item.
-                                    </div>
-                                    
+                                <div class="mb-2">
+                                    <span class="fs-6">⚠️</span> <strong>Atenção</strong>: Definir texto com explicação da pendência:
+                                </div>  
+
+                                <div class="">
+                                    Explicação detalhada se necessário.
+                                </div>  
+ 
+                                <div class="mt-3" >
+                                    <strong>Observação</strong>: Ao clicar em <i><strong>“Avançar”</strong></i>, você será lembrado de revisar este item ao final do guia. Se preferir, regularize a pendência agora e selecione outro item.
                                 </div>
+        
+                                <br>
 
                             </div>
-            
+
+        
+           
                         </div>
+                        
 
                         <br><br>
 
@@ -1155,11 +1160,23 @@
                                 <label class="form-check-label" for="registrado_nao">Não</label>
                             </div>
 
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_8" style="display:none;">
-                                <h6 class="my-0">⚠️ O contrato social deverá registrado em órgão competente.</h6>
-                            </div>
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_8" style="display:none;">
+                                
+                                <div class="mb-2">
+                                    <span class="fs-6">⚠️</span> <strong>Atenção</strong>: Definir texto com explicação da pendência:
+                                </div>  
+
+                                <div class="">
+                                    Explicação detalhada se necessário.
+                                </div>  
+ 
+                                <div class="mt-3" >
+                                    <strong>Observação</strong>: Ao clicar em <i><strong>“Avançar”</strong></i>, você será lembrado de revisar este item ao final do guia. Se preferir, regularize a pendência agora e selecione outro item.
+                                </div>
         
-                            <br>
+                                <br>
+
+                            </div>
             
                         </div>
 
@@ -1245,7 +1262,7 @@
                                 <input class="form-check-input" type="radio" name="cert_digital" id="cert_nao">
                                 <label class="form-check-label" for="cert_nao">Não</label>
                             </div>
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_9" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_9" style="display:none;">
                                 <h6 class="my-0">⚠️ É obrigatório XXXXXXX. Prossiga para os próximos, ao final do checklist orientaremos sobre esse item...</h6>
                             </div>
                             <div class="form-check">
@@ -1267,7 +1284,7 @@
                                     <input type="radio" name="emissao" id="emissao_nao" class="form-check-input">
                                     <label class="form-check-label" for="emissao_nao">Não</label>
                                 </div>
-                                <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_9" style="display:none;">
+                                <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_9" style="display:none;">
                                 <h6 class="my-0">⚠️ Explicar pendência aqui.</h6>
                             </div>
                                 
@@ -1350,7 +1367,7 @@
                                 <input class="form-check-input" type="radio" name="atualizado_cartorio" id="atualizado10_nao">
                                 <label class="form-check-label" for="atualizado10_nao">Não</label>
                             </div>
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_10" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_10" style="display:none;">
                                 <h6 class="my-0">⚠️ Explicar pendência aqui.</h6>
                             </div>
                     
@@ -1372,7 +1389,7 @@
                                 <input class="form-check-input" type="radio" name="registrado_cartorio" id="registrado10_nao">
                                 <label class="form-check-label" for="registrado10_nao">Não</label>
                             </div>
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_10" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_10" style="display:none;">
                                 <h6 class="my-0">⚠️ Explicar pendência aqui.</h6>
                             </div>
         
@@ -1461,7 +1478,7 @@
                                 <input class="form-check-input" type="radio" name="cert_digital_11" id="cert11_nao">
                                 <label class="form-check-label" for="cert11_nao">Não</label>
                             </div>
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_11" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_11" style="display:none;">
                                 <h6 class="my-0">⚠️ É obrigatório XXXXXXX. Prossiga para os próximos, ao final do checklist orientaremos sobre esse item...</h6>
                             </div>
                             <div class="form-check">
@@ -1482,7 +1499,7 @@
                                 <input type="radio" name="emissao_11" id="emissao11_nao" class="form-check-input">
                                 <label class="form-check-label" for="emissao11_nao">Não</label>
                             </div>
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_11" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_11" style="display:none;">
                                 <h6 class="my-0">⚠️ Explicar pendência aqui.</h6>
                             </div>
                         </div>
@@ -1565,7 +1582,7 @@
                         <input class="form-check-input" type="radio" name="atualizado_12" id="atualizado12_nao">
                         <label class="form-check-label" for="atualizado12_nao">Não</label>
                     </div>
-                    <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_12" style="display:none;">
+                    <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_12" style="display:none;">
                         <h6 class="my-0">⚠️ Explicar pendência aqui.</h6>
                     </div>
 
@@ -1589,7 +1606,7 @@
                         <input class="form-check-input" type="radio" name="capital" id="capital_nao">
                         <label class="form-check-label" for="capital_nao">Não</label>
                     </div>
-                    <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_12" style="display:none;">
+                    <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_12" style="display:none;">
                         <h6 class="my-0">⚠️ Explicar pendência aqui.</h6>
                     </div>
 
@@ -1613,7 +1630,7 @@
                         <input class="form-check-input" type="radio" name="registrado_12" id="registrado12_nao">
                         <label class="form-check-label" for="registrado12_nao">Não</label>
                     </div>
-                    <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_3_tela_12" style="display:none;">
+                    <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_3_tela_12" style="display:none;">
                         <h6 class="my-0">⚠️ Explicar pendência aqui.</h6>
                     </div>
 
@@ -1703,7 +1720,7 @@
                                 <input class="form-check-input" type="radio" name="cert_digital_13" id="cert13_nao">
                                 <label class="form-check-label" for="cert13_nao">Não</label>
                             </div>
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_13" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_13" style="display:none;">
                                 <h6 class="my-0">⚠️ É obrigatório XXXXXXX. Prossiga para os próximos, ao final do checklist orientaremos sobre esse item...</h6>
                             </div>
 
@@ -1725,7 +1742,7 @@
                                 <input type="radio" name="emissao_13" id="emissao13_nao" class="form-check-input">
                                 <label class="form-check-label" for="emissao13_nao">Não</label>
                             </div>
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_13" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_13" style="display:none;">
                                 <h6 class="my-0">⚠️ Explicar pendência aqui.</h6>
                             </div>
 
@@ -1810,7 +1827,7 @@
                                 <label class="form-check-label" for="atualizado14_nao">Não</label>
                             </div>
 
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_14" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_14" style="display:none;">
                                 <h6 class="my-0">⚠️ <strong>Atenção</strong>: O contrato social deve estar sempre atualizado, de acordo com a última alteração registrada no órgão competente.</h6>
                             </div>
 
@@ -1834,7 +1851,7 @@
                                 <input class="form-check-input" type="radio" name="registrado_14" id="registrado14_nao">
                                 <label class="form-check-label" for="registrado14_nao">Não</label>
                             </div>
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_14" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_14" style="display:none;">
                                 <h6 class="my-0">⚠️ Explicar pendência aqui.</h6>
                             </div>
                             
@@ -1930,7 +1947,7 @@
                                 <label class="form-check-label" for="cert15_nao">Não</label>
                             </div>
                             
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_15" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_1_tela_15" style="display:none;">
                                 <h6 class="my-0">⚠️ É obrigatório XXXXXXX. Prossiga para os próximos, ao final do checklist orientaremos sobre esse item...</h6>
                             </div>
                             <div class="form-check">
@@ -1952,7 +1969,7 @@
                                 <label class="form-check-label" for="emissao15_nao">Não</label>
                             </div>
                             
-                            <div class="alert alert-warning mt-4 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_15" style="display:none;">
+                            <div class="alert alert-warning my-3 p-3 mx-0 alerta-pendencia" role="alert" id="alerta_2_tela_15" style="display:none;">
                                 <h6 class="my-0">⚠️ Explicar pendência aqui.</h6>
                             </div>
                         </div>
@@ -5511,117 +5528,80 @@
         <!-- Bootstrap JS e dependências -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-        <!-- Script para navegação entre passos -->
+
         
         <script>
 
-        // 1. Variáveis Globais (Mantenha no topo do script)
-        const TOTAL_ETAPAS = 47;
-        let etapasVisitadas = [];
+            // 1. Variáveis Globais (Mantenha no topo do script)
+            const TotalEtapas = 47;
+            let etapasVisitadas = [];
 
-        // 2. Função de Cálculo (Mova para fora para que ambas as funções a vejam)
-function atualizarBarraProgresso(idEtapa, vindoDeEtapa = null) {
-    const numeroEtapa = parseInt(idEtapa.replace('etapa', ''), 10);
-    let porcentagemDestino = Math.round((numeroEtapa / TOTAL_ETAPAS) * 100);
-    
-    const etapaAtiva = document.getElementById(idEtapa);
-    const barra = etapaAtiva.querySelector('.progresso-barra');
+            // 2. Função de Cálculo (Mova para fora para que ambas as funções a vejam)
+            function atualizarBarraProgresso(idEtapa, vindoDeEtapa = null) {
+                const numeroEtapa = parseInt(idEtapa.replace('etapa', ''), 10);
+                let porcentagemDestino = Math.round((numeroEtapa / TotalEtapas) * 100); // TotalEtapas variável global
+                
+                const etapaAtiva = document.getElementById(idEtapa);
+                const barra = etapaAtiva.querySelector('.progresso-barra');
 
-    if (barra) {
-        // 1. Resetar o estado da barra para garantir que a animação ocorra sempre
-        barra.style.transition = "none"; // Desliga animação para o "pulo" inicial
-        
-        if (vindoDeEtapa) {
-            // Se estou VOLTANDO: Começo com a porcentagem de onde eu estava (mais alta)
-            const numeroVindo = parseInt(vindoDeEtapa.replace('etapa', ''), 10);
-            const porcentagemVindo = Math.round((numeroVindo / TOTAL_ETAPAS) * 100);
-            barra.style.width = porcentagemVindo + "%";
-        } else {
-            // Se estou AVANÇANDO: Começo do 0 ou da porcentagem da etapa anterior
-            // (Isso garante que ela sempre "encha" ao entrar na tela)
-            barra.style.width = "0%"; 
-        }
+                if (barra) {
+                    // 1. Resetar o estado da barra para garantir que a animação ocorra sempre
+                    barra.style.transition = "none"; // Desliga animação para o "pulo" inicial
+                    
+                    if (vindoDeEtapa) {
+                        // Se estou VOLTANDO: Começo com a porcentagem de onde eu estava (mais alta)
+                        const numeroVindo = parseInt(vindoDeEtapa.replace('etapa', ''), 10);
+                        const porcentagemVindo = Math.round((numeroVindo / TotalEtapas) * 100); // TotalEtapas variável global
+                        barra.style.width = porcentagemVindo + "%";
+                    } else {
+                        // Se estou AVANÇANDO: Começo do 0 ou da porcentagem da etapa anterior
+                        // (Isso garante que ela sempre "encha" ao entrar na tela)
+                        barra.style.width = "0%"; 
+                    }
 
-        // 2. FORÇAR REFLOW: Isso obriga o navegador a registrar o "width" acima antes de mudar
-        void barra.offsetWidth; 
+                    // 2. FORÇAR REFLOW: Isso obriga o navegador a registrar o "width" acima antes de mudar
+                    void barra.offsetWidth; 
 
-        // 3. Aplicar o valor final com a animação ligada
-        barra.style.transition = "width 0.6s cubic-bezier(0.4, 0, 0.2, 1)"; // Transição mais elegante
-        barra.style.width = porcentagemDestino + "%";
-        barra.innerText = porcentagemDestino + "%";
-        
-        console.log(`📊 Animação ${idEtapa}: indo para ${porcentagemDestino}%`);
-    }
-}
-
-
-
-        function avancaComHistorico(atual, proxima, textoHistorico) {
-            // 1. Mostrar o Spinner
-            const loader = document.getElementById('loader');
-            loader.style.display = 'flex';
-
-            // 2. Simular o processamento
-            setTimeout(() => {
-                console.clear(); 
-
-                // Esconde a atual e mostra a próxima
-                document.getElementById(atual).classList.add('hidden');
-                document.getElementById(proxima).classList.remove('hidden');
-
-                etapasVisitadas.push(proxima);
-                atualizarBarraProgresso(proxima);
-
-                            console.groupCollapsed(`🔍 Navegação: ${atual} ➔ ${proxima}`);
-            console.log("%cTrilha atual:", "color: #14385d; font-weight: bold;", etapasVisitadas.join(' ➔ '));
-
-                // Logs e Histórico (sua lógica atual)
-                if (textoHistorico) {
-                    adicionarEscolha(textoHistorico);
-                }
-
-                // 3. Esconder o Spinner após a transição
-                loader.style.display = 'none';
-
-            }, 600); // 600 milissegundos de "charme" visual
-        }
-
-        // 4. Motor de Retorno
-        function voltarEtapa(atual, anterior) {
-            const etapaAtual = document.getElementById(atual);
-            const etapaAnterior = document.getElementById(anterior);
-            
-
-            const numeroAnterior = parseInt(anterior.replace('etapa', ''), 10);
-
-            // Limpeza de etapas futuras
-            for (let i = numeroAnterior + 1; i <= 100; i++) {
-                const etapa = document.getElementById(`etapa${i}`);
-                if (etapa) {
-                    etapa.classList.add('hidden');
-                    const inputs = etapa.querySelectorAll('input[type="radio"], input[type="checkbox"]');
-                    inputs.forEach(input => input.checked = false);
+                    // 3. Aplicar o valor final com a animação ligada
+                    barra.style.transition = "width 0.6s cubic-bezier(0.4, 0, 0.2, 1)"; // Transição mais elegante
+                    barra.style.width = porcentagemDestino + "%";
+                    barra.innerText = porcentagemDestino + "%";
+                    
+                    console.log(`📊 Animação ${idEtapa}: indo para ${porcentagemDestino}%`);
                 }
             }
 
-            // Sincronização do Histórico e Trilha
-            const indiceEtapaDestino = etapasVisitadas.indexOf(anterior);
-            if (indiceEtapaDestino !== -1) {
-                const itensParaRemover = historicoArray.length - indiceEtapaDestino;
-                for (let i = 0; i < itensParaRemover; i++) {
-                    if (historicoArray.length > 0) historicoArray.pop();
-                }
-                etapasVisitadas = etapasVisitadas.slice(0, indiceEtapaDestino + 1);
+            function avancaComHistorico(atual, proxima, textoHistorico) {
+                // 1. Mostrar o Spinner
+                const loader = document.getElementById('loader');
+                loader.style.display = 'flex';
+
+                // 2. Simular o processamento
+                setTimeout(() => {
+                    
+
+                    // Esconde a atual e mostra a próxima
+                    document.getElementById(atual).classList.add('hidden');
+                    document.getElementById(proxima).classList.remove('hidden');
+
+                    etapasVisitadas.push(proxima);
+                    atualizarBarraProgresso(proxima);
+
+                                console.groupCollapsed(`🔍 Navegação: ${atual} ➔ ${proxima}`);
+                console.log("%cTrilha atual:", "color: #14385d; font-weight: bold;", etapasVisitadas.join(' ➔ '));
+
+                    // Logs e Histórico (sua lógica atual)
+                    if (textoHistorico) {
+                        adicionarEscolha(textoHistorico);
+                    }
+
+                    // 3. Esconder o Spinner após a transição
+                    loader.style.display = 'none';
+
+                }, 600); // 600 milissegundos de "charme" visual
             }
 
-            atualizarHistoricoNaTela();
-            
-            document.getElementById(atual).classList.add('hidden');
-                document.getElementById(anterior).classList.remove('hidden');
 
-// Passamos o 'anterior' (para onde vamos) e o 'atual' (de onde viemos)
-atualizarBarraProgresso(anterior, atual);
-        }
 
             
             // Armazena as escolhas feitas (para poder remover ao voltar)
@@ -5635,7 +5615,7 @@ atualizarBarraProgresso(anterior, atual);
 
             function atualizarHistoricoNaTela() {
                 
-                console.clear(); // Limpe aqui! Assim cada "página" do formulário tem seu próprio console limpo.
+                // console.clear(); // Limpe aqui! Assim cada "página" do formulário tem seu próprio console limpo.
                 const listas = document.querySelectorAll('.historico_escolha');
                               
 
@@ -5667,75 +5647,96 @@ atualizarBarraProgresso(anterior, atual);
                 });
             }
 
-            function voltarEtapa(atual, anterior) {
-                const etapaAtual = document.getElementById(atual);
-                const etapaAnterior = document.getElementById(anterior);
+       function voltarEtapa(atual, anterior) {
+    const etapaAtual = document.getElementById(atual);
+    const etapaAnterior = document.getElementById(anterior);
+    const numeroAnterior = parseInt(anterior.replace('etapa', ''), 10);
 
-                // Extrair o número da etapa de destino (ex: 'etapa7' → 7)
-                const numeroAnterior = parseInt(anterior.replace('etapa', ''), 10);
+    // 1. Loop para limpar TODAS as etapas futuras
+    for (let i = numeroAnterior + 1; i <= 100; i++) {
+        const etapa = document.getElementById(`etapa${i}`);
+        
+        if (etapa) {
+            // Esconde a etapa futura
+            etapa.classList.add('hidden');
 
-                // 1. Limpar TODAS as etapas com número MAIOR que a etapa de destino
-                for (let i = numeroAnterior + 1; i <= 100; i++) {
-                    const etapa = document.getElementById(`etapa${i}`);
-                    if (etapa) {
-                        // Esconder etapa
-                        etapa.classList.add('hidden');
+            // Limpa todos os inputs (radios e checkboxes)
+            const inputs = etapa.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+            inputs.forEach(input => input.checked = false);
 
-                        // Limpar radios e checkboxes
-                        const inputs = etapa.querySelectorAll('input[type="radio"], input[type="checkbox"]');
-                        inputs.forEach(input => input.checked = false);
-
-                        // Limpar campos específicos (como RRT)
-                        const rrtInputs = etapa.querySelectorAll('input[name^="rrt"], input[name^="endereco"], input[name^="atividade"], input[name^="quantidade"], input[name^="tipologia"]');
-                        rrtInputs.forEach(input => input.checked = false);
-                    }
+            // --- CORREÇÃO DO ERRO: A limpeza de alertas deve estar AQUI dentro ---
+            for (let j = 1; j <= 5; j++) {
+                const alertaId = `#alerta_${j}_tela_${i}`;
+                const alerta = $(alertaId); // Usando jQuery
+                if (alerta.length) {
+                    alerta.hide(); // Esconde instantaneamente sem animação para o reset ser limpo
                 }
-
-                // 2. Esconder e limpar perguntas expandidas
-                ['pergunta-clt', 'pergunta-certidao', 'pergunta-certidao-11', 'pergunta-certidao-13', 'pergunta-certidao-15'].forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.classList.add('hidden');
-                        const radios = el.querySelectorAll('input[type="radio"]');
-                        radios.forEach(radio => radio.checked = false);
-                    }
-                });
-
-
-                // 3. Ocultar todos os alertas de pendência (1 a 5) das etapas futuras
-                for (let i = numeroAnterior + 1; i <= 100; i++) {
-                    // Loop interno para verificar os alertas de 1 a 5 em cada tela
-                    for (let j = 1; j <= 5; j++) {
-                        const alerta = document.getElementById(`alerta_${j}_tela_${i}`);
-                        if (alerta) {
-                            alerta.style.display = 'none';
-                        }
-                    }
-                }
-
-                // 4. 🚨 CORREÇÃO: Remover do histórico APENAS as escolhas feitas após a etapa de destino
-                const indiceEtapaDestino = etapasVisitadas.indexOf(anterior);
-                if (indiceEtapaDestino !== -1) {
-                    const itensParaRemover = historicoArray.length - indiceEtapaDestino;
-                    for (let i = 0; i < itensParaRemover; i++) {
-                        if (historicoArray.length > 0) {
-                            historicoArray.pop();
-                        }
-                    }
-                    // Atualizar também o array de etapas visitadas
-                    etapasVisitadas = etapasVisitadas.slice(0, indiceEtapaDestino + 1);
-                }
-
-                // 5. Atualizar exibição do histórico
-                atualizarHistoricoNaTela();
-
-                // 6. Trocar de etapa
-                etapaAtual.classList.add('hidden');
-                etapaAnterior.classList.remove('hidden');
-
-                // Atualiza a barra da etapa anterior para qual você voltou
-                atualizarBarraProgresso(anterior);
             }
+        }
+    }
+
+    // 2. Esconder perguntas extras dinâmicas
+    const idsDinâmicos = ['pergunta-clt', 'pergunta-certidao', 'pergunta-certidao-11', 'pergunta-certidao-13', 'pergunta-certidao-15'];
+    idsDinâmicos.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+    });
+
+    // 3. Sincronização do Histórico (Pop das escolhas descartadas)
+    const indiceEtapaDestino = etapasVisitadas.indexOf(anterior);
+    if (indiceEtapaDestino !== -1) {
+        const itensParaRemover = historicoArray.length - indiceEtapaDestino;
+        for (let k = 0; k < itensParaRemover; k++) {
+            if (historicoArray.length > 0) historicoArray.pop();
+        }
+        etapasVisitadas = etapasVisitadas.slice(0, indiceEtapaDestino + 1);
+    }
+
+    // 4. Atualiza a interface
+    atualizarHistoricoNaTela();
+    etapaAtual.classList.add('hidden');
+    etapaAnterior.classList.remove('hidden');
+
+    // 5. Ajusta a barra de progresso
+    atualizarBarraProgresso(anterior);
+}
+
+            // // 4. Motor de Retorno
+            // function voltarEtapa(atual, anterior) {
+            //     const etapaAtual = document.getElementById(atual);
+            //     const etapaAnterior = document.getElementById(anterior);
+                
+
+            //     const numeroAnterior = parseInt(anterior.replace('etapa', ''), 10);
+
+            //     // Limpeza de etapas futuras
+            //     for (let i = numeroAnterior + 1; i <= 100; i++) {
+            //         const etapa = document.getElementById(`etapa${i}`);
+            //         if (etapa) {
+            //             etapa.classList.add('hidden');
+            //             const inputs = etapa.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+            //             inputs.forEach(input => input.checked = false);
+            //         }
+            //     }
+
+            //     // Sincronização do Histórico e Trilha
+            //     const indiceEtapaDestino = etapasVisitadas.indexOf(anterior);
+            //     if (indiceEtapaDestino !== -1) {
+            //         const itensParaRemover = historicoArray.length - indiceEtapaDestino;
+            //         for (let i = 0; i < itensParaRemover; i++) {
+            //             if (historicoArray.length > 0) historicoArray.pop();
+            //         }
+            //         etapasVisitadas = etapasVisitadas.slice(0, indiceEtapaDestino + 1);
+            //     }
+
+            //     atualizarHistoricoNaTela();
+                
+            //     document.getElementById(atual).classList.add('hidden');
+            //         document.getElementById(anterior).classList.remove('hidden');
+
+            //     // Passamos o 'anterior' (para onde vamos) e o 'atual' (de onde viemos)
+            //     atualizarBarraProgresso(anterior, atual);
+            // }
            
             // Etapa 0 
 
@@ -5743,7 +5744,7 @@ atualizarBarraProgresso(anterior, atual);
                 avancaComHistorico('etapa0', 'etapa1'); 
 
                 // 4. Limpar timeout anterior e criar novo para mostrar ajuda
-                clearTimeout(timeoutAjuda);
+                // clearTimeout(timeoutAjuda);
                 timeoutAjuda = setTimeout(mostrarAjudaTipoVinculo, 700);
             }
 
@@ -5781,11 +5782,11 @@ atualizarBarraProgresso(anterior, atual);
             });
 
             // Fechar overlay ao clicar fora do balão
-            document.getElementById('overlay-ajuda')?.addEventListener('click', e => {
-                if (e.target.id === 'overlay-ajuda') {
-                    e.currentTarget.classList.add('d-none');
-                }
-            });
+            //document.getElementById('overlay-ajuda')?.addEventListener('click', e => {
+            //    if (e.target.id === 'overlay-ajuda') {
+            //        e.currentTarget.classList.add('d-none');
+            //    }
+            //});
 
 
 
@@ -5934,52 +5935,64 @@ atualizarBarraProgresso(anterior, atual);
             // -----------------------------
             function avancaAtoConstitutivo() {
                 const ato = document.querySelector('input[name="ato"]:checked');
-         
 
-                let escolha = '';
-                let proximaEtapa;
 
-                switch (ato.id) {
-                    case 'requerimento_empresario':
-                        proximaEtapa = 'etapa12';
-                        escolha = '✅ Tipo de de contrato social ou alteração contratual: Requerimento de Empresário (JUCESP)';
-                        break;
-                    case 'contrato_jucesp':
-                        proximaEtapa = 'etapa8';
-                        escolha = '✅ Tipo de de contrato social ou alteração contratual: Prestador de Serviços';
-                        break;
-                    case 'contrato_cartorio':
-                        proximaEtapa = 'etapa10';
-                        escolha = '✅ Tipo de de contrato social ou alteração contratual: Contrato Social (Cartório)';
-                        break;
-                    case 'estatuto_social':
-                        proximaEtapa = 'etapa14';
-                        escolha = '✅ Tipo de de contrato social ou alteração contratual: Estatuto Social';
-                        break;
-                    case 'norma_publica':
-                        proximaEtapa = 'etapa16';
-                        escolha = '✅ Tipo de de contrato social ou alteração contratual: Norma Pública';
-                        break;
-                    case 'certificado_mei':
-                        proximaEtapa = 'etapa18';
-                        escolha = '✅ Tipo de de contrato social ou alteração contratual: Certificado de Microempreendedor Individual';
-                        break;
-                    case 'outro_tipo':
-                        proximaEtapa = 'etapa17';
-                        escolha = '✅ Tipo de de contrato social ou alteração contratual: Outro tipo';
-                        break;
-                    default:
-                        Swal.fire({
-                            icon: "error",
-                            title: "Erro",
-                            text: "Opção inválida!",
-                            confirmButtonText: 'Entendi',
-                            confirmButtonColor: '#14385d'
-                        });
-                        return;
+                if (ato == null){
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro",
+                        text: "Opção inválida!",
+                        confirmButtonText: 'Entendi',
+                        confirmButtonColor: '#14385d'
+                    });
+                    
+                } else {
+                    let escolha = '';
+                    let proximaEtapa;
+
+                    switch (ato.id) {
+                        case 'requerimento_empresario':
+                            proximaEtapa = 'etapa12';
+                            escolha = '✅ Tipo de de contrato social ou alteração contratual: Requerimento de Empresário (JUCESP)';
+                            break;
+                        case 'contrato_jucesp':
+                            proximaEtapa = 'etapa8';
+                            escolha = '✅ Tipo de de contrato social ou alteração contratual: Prestador de Serviços';
+                            break;
+                        case 'contrato_cartorio':
+                            proximaEtapa = 'etapa10';
+                            escolha = '✅ Tipo de de contrato social ou alteração contratual: Contrato Social (Cartório)';
+                            break;
+                        case 'estatuto_social':
+                            proximaEtapa = 'etapa14';
+                            escolha = '✅ Tipo de de contrato social ou alteração contratual: Estatuto Social';
+                            break;
+                        case 'norma_publica':
+                            proximaEtapa = 'etapa16';
+                            escolha = '✅ Tipo de de contrato social ou alteração contratual: Norma Pública';
+                            break;
+                        case 'certificado_mei':
+                            proximaEtapa = 'etapa18';
+                            escolha = '✅ Tipo de de contrato social ou alteração contratual: Certificado de Microempreendedor Individual';
+                            break;
+                        case 'outro_tipo':
+                            proximaEtapa = 'etapa17';
+                            escolha = '✅ Tipo de de contrato social ou alteração contratual: Outro tipo';
+                            break;
+                        default:
+                            Swal.fire({
+                                icon: "error",
+                                title: "Erro",
+                                text: "Opção inválida!",
+                                confirmButtonText: 'Entendi',
+                                confirmButtonColor: '#14385d'
+                            });
+                            return;
+                    }
+
+                    avancaComHistorico('etapa7', proximaEtapa, escolha);
                 }
-
-                avancaComHistorico('etapa7', proximaEtapa, escolha);
+                           
             }
 
             // Etapa 08: 
@@ -7597,7 +7610,7 @@ atualizarBarraProgresso(anterior, atual);
 
 
 
-            
+            // funcionalidades dos cards multiplos TIPO DE VÍNCULO e ATO
             // Para grupos "opcao_tipo_vinculo"
             document.querySelectorAll('input[name="vinculo"]').forEach((input) => {
                 input.addEventListener('change', () => {
@@ -7627,25 +7640,20 @@ atualizarBarraProgresso(anterior, atual);
                     }
                 });
             });
+            // ---------------------- FIM -------------------------------------------------
+               
+$(document).ready(function() {
+    // Escuta mudanças nos inputs do tipo radio com o nome 'atualizado'
+    $('input[name="atualizado"]').on('change', function() {
+        if ($('#atualizado_nao').is(':checked')) {
+            $('#alerta_1_tela_8').slideDown(400);
+        } else {
+            $('#alerta_1_tela_8').slideUp(400);
+        }
+    });
+});
 
-            // informações sobre pendencias
-            document.addEventListener('DOMContentLoaded', function () {
-                const radioSim = document.getElementById('atualizado_sim');
-                const radioNao = document.getElementById('atualizado_nao');
-                const alerta = document.getElementById('alerta_1_tela_8');
-
-                radioNao.addEventListener('change', function () {
-                    if (this.checked) {
-                        alerta.style.display = 'block';
-                    }
-                });
-
-                radioSim.addEventListener('change', function () {
-                    if (this.checked) {
-                        alerta.style.display = 'none';
-                    }
-                });
-            });
+ 
 
             document.addEventListener('DOMContentLoaded', function () {
                 const radioSim = document.getElementById('registrado_sim');
@@ -7664,6 +7672,8 @@ atualizarBarraProgresso(anterior, atual);
                     }
                 });
             });
+
+ 
 
             document.addEventListener('DOMContentLoaded', function () {
                 const radioSim = document.getElementById('cert_sim');
@@ -7968,11 +7978,6 @@ atualizarBarraProgresso(anterior, atual);
             });
             
 
-            // tooltip bootstrap
-            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-            tooltipTriggerList.forEach(el => {
-                new bootstrap.Tooltip(el)
-            })
 
 
         </script>

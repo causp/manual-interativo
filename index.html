@@ -287,9 +287,9 @@
                             Para abertura da solicitação sem a conferência da documentação, <a href="https://siccau.caubr.gov.br//app/view/sight/externo.php?form=CadastrarEmpresa" target="_blank">clique aqui</a>. No entanto, recomenda-se a conferência prévia dos documentos antes da abertura da solicitação, a fim de evitar pendências e eventuais atrasos na aprovação do registro
                         </i>
                         </p>
-                    
-                        <h6 style="color: red;"><strong>Protótipo em desenvolvimento...</strong></h6>
-                        <h6 style="color: red;"><strong>Revisar textos e fluxos...</strong></h6>
+                        <!-- 
+                        <h5 style="color: red;"><strong>Protótipo em desenvolvimento...</strong></h5>
+                        <h5 style="color: red;"><strong>Revisar textos e fluxos...</strong></h5> -->
                             
                     </div>
                 </div>
@@ -796,14 +796,16 @@
                     <div>
                         ⚠️ Caso tenha não tenha certeza se a empresa se está está ok nos termos do artigo 11, sugerimos retirar a dúvida por meio dos nossos <a href="">Canais de Atendimento</a>.
                     </div>
-                    <br><br>
+                    <br>
+                    
+                    <!-- <br>
                     <div>
                         Também é possível abrir uma solicitação de registro e submeter os documentos para análise do CAU/SP. Para isso, clique no botão abaixo:
                     </div>
 
                     <div class="d-flex justify-content-between px-2">
                         <a class="btn btn-success my-3" href="https://siccau.caubr.gov.br//app/view/sight/externo.php?form=CadastrarEmpresa" target="_blank">Acessar o SICCAU para solicitar o registro da empresa</a>
-                    </div>
+                    </div> -->
 
 
                     <div class="mt-3">
@@ -2452,14 +2454,16 @@
                     <div>
                         ⚠️ Caso tenha não tenha certeza do enquadramento da empresa, sugerimos esclarecer a dúvida por meio dos nossos <a href="">Canais de Atendimento</a>.
                     </div>
-                    <br><br>
-                    <div>
+                    <br>
+                    <!-- <br> -->
+
+                    <!-- <div>
                         Também é possível abrir uma solicitação de registro e submeter os documentos para análise do CAU/SP. Para isso, clique no botão abaixo:
                     </div>
 
                     <div class="d-flex justify-content-between px-2">
                         <a class="btn btn-success my-3" href="https://siccau.caubr.gov.br//app/view/sight/externo.php?form=CadastrarEmpresa" target="_blank">Acessar o SICCAU para solicitar o registro da empresa</a>
-                    </div>
+                    </div> -->
 
 
                     <div class="mt-3">
@@ -5602,8 +5606,7 @@
 
                 <br>
 
-
-            
+           
                 <hr class="my-4">
 
                 <div class="btn-container row my-2">
@@ -6987,7 +6990,7 @@
                         historicoArray.forEach(item => {
                             const div = document.createElement('div');
                             div.className = 'escolha-item';
-                            div.textContent = item;
+                            div.innerHTML = item;
                             lista.appendChild(div);
                         });
                     }
@@ -7056,6 +7059,7 @@
                 etapaAnterior.classList.remove('hidden');
                 atualizarBarraProgresso(anterior);
             }
+
             // // 4. Motor de Retorno
             // function voltarEtapa(atual, anterior) {
             //     const etapaAtual = document.getElementById(atual);
@@ -7143,11 +7147,6 @@
             //    }
             //});
 
-
-
-
-
-
             // Etapa 1 → desvia conforme vínculo
             function irParaProximaEtapa() {
                 const opcoes = {
@@ -7188,8 +7187,6 @@
                     });
                 }
             }
-
-
 
             // Etapa 2: verificar nome com arquitetura
             function verificarNomeArquitetura() {
@@ -7291,7 +7288,6 @@
             function avancaAtoConstitutivo() {
                 const ato = document.querySelector('input[name="ato"]:checked');
 
-
                 if (ato == null){
                     Swal.fire({
                         icon: "error",
@@ -7312,7 +7308,7 @@
                             break;
                         case 'contrato_jucesp':
                             proximaEtapa = 'etapa8';
-                            escolha = '✅ Tipo de de contrato social ou alteração contratual: Contrato Social (JUCESP)';
+                            escolha = '✅ Tipo de de contrato social ou alteração contratual: Prestador de Serviços';
                             break;
                         case 'contrato_cartorio':
                             proximaEtapa = 'etapa10';
@@ -7419,7 +7415,6 @@
                 });
             }
 
-
             // Etapa 10: 
             function avancarCartorioRecenteRegistrado() {
                 // 1. Mapeamento
@@ -7490,9 +7485,6 @@
                     confirmButtonColor: '#14385d'
                 });
             }
-
-            
-
 
             // Etapa 12: 
             function avancarRequerimentoRecenteRegistrado() {
@@ -7572,8 +7564,6 @@
                     confirmButtonColor: '#14385d'
                 });
             }
-
-
 
             // Etapa 14: estatuto recente e registrado
             function avancarEstatutoRecenteRegistrado() {
@@ -7682,6 +7672,7 @@
             //         document.getElementById('pergunta-certidao-15').classList.remove('hidden');
             //     }
             // });
+
             document.getElementById('cert15_sim').addEventListener('change', function () {
                 if (this.checked) {
                     document.getElementById('pergunta-certidao-15').classList.add('hidden');
@@ -7777,8 +7768,6 @@
                 avancaComHistorico('etapa19', proximaEtapa);
             }
 
-
-
             // Etapa 20: 
             function avancaNomeSocioNoQuadroSocietario() {
                 const quadro_sim = document.getElementById('quadro_sim');
@@ -7863,11 +7852,17 @@
                 const piso_sim = document.getElementById('piso_sim');
                 const piso_nao = document.getElementById('piso_nao');
 
+                const resultado_prestador = document.getElementById('resultado_prestador');
+
                 // 2. Validação Agrupada
                 let erros = [];
                 if (!carga_sim.checked && !carga_nao.checked) erros.push("• Dados da <b>Contratante</b>.");
                 if (!honorarios_sim.checked && !contratado_nao.checked) erros.push("• Dados do <b>Contratado</b>.");
                 if (!piso_sim.checked && !piso_nao.checked) erros.push("• <b>Objeto Social</b>.");
+
+                if (resultado_prestador.style.display === "none") {
+                    erros.push("• Efetuar o <b>Cálculo do Piso</b> Profissional.");
+                }
 
                 if (erros.length > 0) {
                     Swal.fire({
@@ -8044,11 +8039,18 @@
                 const piso26_sim = document.getElementById('piso26_sim');
                 const piso26_nao = document.getElementById('piso26_nao');
 
+                const resultado_clt_ctps_fisica = document.getElementById('resultado_clt_ctps_fisica');
+
+                
                 // 2. Validação Agrupada
                 let erros = [];
                 if (!carga26_sim.checked && !carga26_nao.checked) erros.push("• Dados da <b>Carga Horária</b>.");
                 if (!honorarios26_sim.checked && !honorarios26_nao.checked) erros.push("• Dados do <b>Honorário</b>.");
                 if (!piso26_sim.checked && !piso26_nao.checked) erros.push("• Dados do <b>Piso Salarial</b>.");
+                
+                if (resultado_clt_ctps_fisica.style.display === "none") {
+                    erros.push("• Efetuar o <b>Cálculo do Piso</b> Profissional.");
+                }
 
                 if (erros.length > 0) {
                     Swal.fire({
@@ -8128,11 +8130,17 @@
                 const piso28_sim = document.getElementById('piso28_sim');
                 const piso28_nao = document.getElementById('piso28_nao');
 
+                const resultado_clt_ctps_digital = document.getElementById('resultado_clt_ctps_digital');
+
                 // 2. Validação Agrupada
                 let erros = [];
                 if (!carga28_sim.checked && !carga28_nao.checked) erros.push("• Dados da <b>Carga Horária</b>.");
                 if (!honorarios28_sim.checked && !honorarios28_nao.checked) erros.push("• Dados do <b>Honorário</b>.");
                 if (!piso28_sim.checked && !piso28_nao.checked) erros.push("• Dados do <b>Piso Salarial</b>.");
+               
+                if (resultado_clt_ctps_digital.style.display === "none") {
+                    erros.push("• Efetuar o <b>Cálculo do Piso</b> Profissional.");
+                }
 
                 if (erros.length > 0) {
                     Swal.fire({
@@ -10648,38 +10656,6 @@
                 });
             });
 
-
-
-             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             // document.addEventListener('DOMContentLoaded', function () {
                 
             //     // --- Pergunta 1: Atualizado ---
@@ -10858,14 +10834,8 @@
                 });
             });
             
-
-
-
         </script>
-
-
-
-        
+      
     </body>
 </html>
 
